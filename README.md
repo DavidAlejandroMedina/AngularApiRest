@@ -1,6 +1,7 @@
 # AngularApiRest
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.4.
+It is focused on consuming REST services in an Api created with NodeJS. In fact, you can find it in this repository [ApiNodeJS](https://github.com/DavidAlejandroMedina/ApiRest-NodeJS)
 
 ## Development server
 
