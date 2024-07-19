@@ -1,0 +1,32 @@
+<div class="main-container">
+  <form (ngSubmit)="guardarImg()" [formGroup]="myForm">
+    <div class="form-container">
+      <mat-form-field class="form-field">
+        <mat-label>ID</mat-label>
+        <input type="text" matInput formControlName="_id">
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Descripción</mat-label>
+        <input type="text" matInput formControlName="descripcion">
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Url</mat-label>
+        <input type="text" matInput formControlName="url">
+      </mat-form-field>
+      <img [src]="img.url" class="img-thumb" />
+    <!-- <div class="form-floating mb-3">
+      <input  formControlName="_id" type="text" class="form-control">
+      <label for="floatingInput">ID</label>
+    </div> -->
+    <!-- <div class="form-floating mb-3">
+      <input formControlName="descripcion" type="text" class="form-control">
+      <label for="floatingInput">Descripción</label>
+    </div> -->
+    <!-- <div class="form-floating mb-3">
+      <input formControlName="url" type="text" class="form-control">
+      <label for="floatingInput">Url</label>
+    </div> -->
+    <button [disabled]="!myForm.valid" type="submit" mat-flat-button color="primary">Guardar</button>
+    </div>
+  </form>
+</div>

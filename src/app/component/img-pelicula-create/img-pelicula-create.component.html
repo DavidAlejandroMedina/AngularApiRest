@@ -1,0 +1,26 @@
+<div class="page-container">
+  <form [formGroup]="form" (ngSubmit)="guardarImgHeroe()">
+    <div class="card-body">
+      <h1 class="title">{{ pelicula.titulo }}</h1>
+      <img [src]="pelicula.img" class="img-thumb" alt="...">
+      <p>Selecciona la imagen:</p>
+    </div>
+    <div class="grid-features">
+      @for (Imagen of Imagenes; track Imagen._id) {
+        <div
+          class="g-col-6 g-col-md-4 card"
+          [class.selected]="isSelected(Imagen)"
+          (click)="selectImg(Imagen)">
+          <img [src]="Imagen.url" alt="{{ Imagen.descripcion }}">
+          <div class="card-content">
+            <p><strong>{{ Imagen.descripcion }}</strong></p>
+            <input type="radio" formControlName="selectedImg" [value]="Imagen" hidden>
+          </div>
+        </div>
+      }
+    </div>
+    <div class="card-body">
+      <button type="submit" mat-flat-button color="primary">Guardar</button>
+    </div>
+  </form>
+</div>

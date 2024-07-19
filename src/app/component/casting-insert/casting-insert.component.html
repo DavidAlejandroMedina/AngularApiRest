@@ -1,0 +1,47 @@
+<div class="page-container">
+  
+  <form [formGroup]="form" (ngSubmit)="guardarCasting()">
+    <div class="card-body">
+      @if (tipo == "heroe") {
+        <h1 class="title">Casting de {{heroe.nombre}}</h1>
+        <img [src]="heroe.img" class="img-thumb" alt="...">
+      } @else {
+        <h1 class="title">Imágenes de {{pelicula.titulo}}</h1>
+        <img [src]="pelicula.img" class="img-thumb" alt="...">
+      }
+      <p>Selecciona la imagen:</p>
+    </div>
+    <div class="grid-features">
+      @if (tipo == "heroe") {
+        @for (pelicula of peliculas; track pelicula._id) {
+        <div
+          class="g-col-6 g-col-md-4 card"
+          [class.selected]="isSelected(pelicula)"
+          (click)="selectCasting(pelicula)">
+            <img [src]="pelicula.img" alt="{{ pelicula.titulo }}">
+            <div class="card-content">
+              <p><strong>{{ pelicula.titulo }}</strong></p>
+              <input type="radio" formControlName="selectedCasting" [value]="pelicula" hidden>
+            </div>
+        </div>
+        } 
+      } @else {
+          @for (heroe of heroes; track heroe._id) {
+          <div
+            class="g-col-6 g-col-md-4 card"
+            [class.selected]="isSelected(heroe)"
+            (click)="selectCasting(heroe)">
+              <img [src]="heroe.img" alt="{{ heroe.nombre }}">
+              <div class="card-content">
+                <p><strong>{{ heroe.nombre }}</strong></p>
+                <input type="radio" formControlName="selectedCasting" [value]="heroe" hidden>
+              </div>
+          </div>
+          }
+        }
+    </div>
+    <div class="card-body">
+      <button type="submit" mat-flat-button color="primary">Guardar</button>
+    </div>
+  </form>
+</div>

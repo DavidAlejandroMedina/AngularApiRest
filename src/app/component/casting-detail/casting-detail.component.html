@@ -1,0 +1,49 @@
+<div class="page-container">
+  @if (tipo == "heroe") {
+    <h1 class="title">Casting de {{heroe.nombre}}</h1>
+    <img [src]="heroe.img" class="img-thumb" alt="...">
+  } @else {
+    <h1 class="title">Imágenes de {{pelicula.titulo}}</h1>
+    <img [src]="pelicula.img" class="img-thumb" alt="...">
+  }
+  <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+    <div class="btn-group me-2" role="group" aria-label="First group">
+      <button [routerLink]="['/casting', tipo]" class="btn btn-outline-info">
+        <i class="bi bi-arrow-down-left-circle-fill"></i>
+        Regresar
+      </button>
+    </div>
+    <div class="btn-group" role="group" aria-label="Third group">
+      <button (click)="insertarCasting()" type="button" class="btn btn-outline-success">
+        <i class="fa fa-plus"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
+        </svg> </i>
+        Agregar Casting
+      </button>
+    </div>
+  </div>
+  <br>
+
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+      @for (casting of castings; track casting.heroes_id._id) {
+        <div class="g-col-6 g-col-md-4  grid-features">
+          <button (click)="eliminarCasting(casting)" type="button" class="btn btn-outline-danger">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+              <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+            </svg>
+            @if (tipo == "heroe") {
+            <img [src]="casting.peliculas_id.img" class="img">
+            } @else {
+              <img [src]="casting.heroes_id.img" class="img">
+            }
+          </button>
+        </div>
+      } @empty {
+        <div class="alert alert-warning" role="alert">
+          No hay imágenes para {{tipo}}
+        </div>
+      }
+      </div>
+  </div>
+</div>

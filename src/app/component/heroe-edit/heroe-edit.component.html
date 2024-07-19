@@ -1,0 +1,40 @@
+<div class="main-container">
+  <form (ngSubmit)="guardarHeroe()" [formGroup]="myForm" class="form">
+    <div class="form-container">
+      <mat-form-field class="form-field">
+        <mat-label>ID</mat-label>
+        <input type="text" matInput formControlName="_id">
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Nombre</mat-label>
+        <input type="text" matInput formControlName="nombre">
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Biografía</mat-label>
+        <input type="text" matInput formControlName="bio">
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Imagen</mat-label>
+        <input type="text" matInput formControlName="img">
+      </mat-form-field>
+      <img [src]="heroe.img" class="img-thumb" />
+      <mat-form-field class="form-field">
+        <mat-label>Aparición</mat-label>
+        <input matInput [matDatepicker]="dp" formControlName="aparicion">
+        <mat-datepicker-toggle matIconSuffix [for]="dp"></mat-datepicker-toggle>
+        <mat-datepicker #dp></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Favorite food</mat-label>
+        <mat-select formControlName="casa"name="food">
+          <mat-option >Elige la casa</mat-option>
+          <mat-option value="DC">DC House</mat-option>
+          <mat-option value="Marvel">Marvel House</mat-option>
+          <mat-option value="Other house">Other House</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button [disabled]="!myForm.valid" type="submit" mat-flat-button color="primary">Guardar</button>
+    </div>
+  </form>
+</div>
+

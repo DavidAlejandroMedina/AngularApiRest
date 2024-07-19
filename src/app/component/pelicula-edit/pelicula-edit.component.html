@@ -1,0 +1,48 @@
+<div class="main-container">
+  <form (ngSubmit)="guardarPelicula()" [formGroup]="myForm">
+    <div class="form-container">
+      <mat-form-field class="form-field">
+        <mat-label>ID</mat-label>
+        <input type="text" matInput formControlName="_id">
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Títutlo</mat-label>
+        <input type="text" matInput formControlName="titulo">
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Descripción</mat-label>
+        <input type="text" matInput formControlName="descripcion">
+      </mat-form-field>
+    <!-- <div class="form-floating mb-3">
+      <input formControlName="_id" type="text" class="form-control">
+      <label for="floatingInput">ID</label>
+    </div> -->
+    <!-- <div class="form-floating mb-3">
+      <input formControlName="titulo" type="text" class="form-control">
+      <label for="floatingInput">Titulo</label>
+    </div> -->
+    <!-- <div class="form-floating mb-3">
+      <input formControlName="descripcion" type="text" class="form-control">
+      <label for="floatingInput">Descripción</label>
+    </div> -->
+    <mat-form-field>
+      <mat-label>Fecha Lanzamiento</mat-label>
+      <input matInput [matDatepicker]="dp" formControlName="fecha_lanzamiento">
+      <mat-datepicker-toggle matIconSuffix [for]="dp"></mat-datepicker-toggle>
+      <mat-datepicker #dp></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="form-field">
+      <mat-label>Imagen</mat-label>
+      <input type="text" matInput formControlName="img">
+    </mat-form-field>
+    <img [src]="pelicula.img" class="img-thumb" />
+
+    <!-- <div class="form-floating mb-3">
+      <input formControlName="img" type="text" class="form-control">
+      <label for="floatingInput">Imagen</label>
+      <img [src]="pelicula.img" class="img-thumb" />
+    </div> -->
+      <button [disabled]="!myForm.valid" type="submit" mat-flat-button color="primary">Guardar</button>
+    </div>
+  </form>
+</div>

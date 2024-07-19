@@ -1,1 +1,60 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+  color-scheme: light dark;
+  --color-background: #212529;
+  --color-text: #f8f8f2;
+  --color-background-navbar: #432875;
+  --color-nav-link: #9156FD;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #282a36;
+    --color-text: #f8f8f2;
+    --color-accent: #bd93f9;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-background: #ffffff;
+    --color-text: #000000;
+    --color-accent: #bd93f9;
+  }
+} */
+
+html, body { 
+  height: 100%;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  margin: 0;
+}
+
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.navbar {
+  background-color: var(--color-background-navbar) !important;
+}
+
+.nav-link {
+  font-weight: bold;
+}
+
+h1.title{
+  padding-bottom: 20px;
+  text-align: left;
+  font-weight:bold; 
+  font-size: 70px; 
+  color: #7848D3; 
+  text-shadow: -1px 0 #000000, 0 1px #000000, 1px 0 #000000, 0 -1px #000000, -2px 2px 0 #000000, 2px 2px 0 #000000, 1px 1px #000000, 2px 2px #000000, 3px 3px #000000, 4px 4px #000000, 5px 5px #000000;
+}
+
+.alert-warning{
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,16 @@
+<div class="page-container">
+  <h1 class="title">CASTING</h1>
+  <p> Selecciona tu {{ tipo }}</p>
+
+  <div class="container">
+    <div class="grid text-center">
+      @for (elemento of elementos; track elemento._id) {
+        <div class="g-col-6 g-col-md-4  grid-features">
+          <button (click)="obtenerCasting(elemento._id)" type="button" class="btn btn-outline-primary  no-outline">
+            <img [src]="elemento.img" class="img">
+          </button>
+        </div>
+      }
+    </div>
+  </div>
+</div>
